@@ -1,4 +1,4 @@
-# Python Port Scanner File Example -- Pg 136
+# Python Port Scanner Write-to-File Example -- Pg 137
 
 # Import Libraries
 import threading
@@ -6,6 +6,8 @@ import socket
 
 # Defining Variables
 target = '192.168.1.108'
+results = open('results.txt','w')
+
 
 # Defining Functions
 def portscan(port):
@@ -17,6 +19,7 @@ def portscan(port):
         con = s.connect((target,port))
 
         print('Port: ', port,' is open.')
+        results.write('Port: ' +repr(port) + ' is open.\n');
 
         con.close()
     except:
